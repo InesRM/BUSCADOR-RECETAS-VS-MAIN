@@ -1,0 +1,184 @@
+{
+  "dishes": [
+    {
+      "name": "Pollo",
+      "description": "Hamburguesas de pollo",
+      "ingredients": ["Pollo", " Lechuga", " Tomate"],
+      "image": "Imagenes/Pollo.jpg",
+      "categories": ["Hamburguesas"],
+      "allergens": ["Frutos Secos", "Gluten"],
+      "menus": ["Menu Pollo"]
+    },
+    {
+      "name": "Ternera",
+      "description": "Hamburguesa de ternera",
+      "ingredients": ["Ternera", " Tomate", " Lechuga"],
+      "image": "Imagenes/Ternera.jpg",
+      "categories": ["Hamburguesas"],
+      "allergens": ["Gluten"],
+      "menus": ["Menu Continental"]
+    },
+    {
+      "name": "Vegetariana",
+      "description": "Hamburguesa vegetal",
+      "ingredients": ["Vegetales", " Tomate", " Lechuga"],
+      "image": "Imagenes/Vegetariana.jpg",
+      "categories": ["Hamburguesas"],
+      "allergens": ["Gluten", "Fructosa"],
+      "menus": ["Menu Vegetariano"]
+    },
+    {
+      "name": "Barbacoa",
+      "description": "Hamburguesa barbacoa",
+      "ingredients": ["Salsa Barbacoa ", " Tomate", " Lechuga"],
+      "image": "Imagenes/Barbacoa.jpg",
+      "categories": ["Hamburguesas"],
+      "allergens": ["Gluten"],
+      "menus": ["Menu Continental"]
+    },
+    {
+      "name": "Chocolate",
+      "description": "Tarta de Chocolate",
+      "ingredients": ["Cacao", "Salsa", "Nata", "Galleta"],
+      "image": "Imagenes/Chocolate.jpg",
+      "categories": ["Postres"],
+      "allergens": ["Lactosa", "Fructosa"],
+      "menus": ["Menu Continental"]
+    },
+    {
+      "name": "Helado",
+      "description": "Helados caseros de frutas",
+      "ingredients": ["Helado", "Salsa", "Galleta", "Frutas"],
+      "image": "Imagenes/Helado.jpg",
+      "categories": ["Postres"],
+      "allergens": ["Lactosa", "Fructosa"],
+      "menus": ["Menu Continental"]
+    },
+    {
+      "name": "Fruta",
+      "description": "Frutas frescas de temporada",
+      "ingredients": ["Arándanos", "Fresas", "Moras"],
+      "image": "Imagenes/Fruta.jpg",
+      "categories": ["Postres"],
+      "allergens": ["Fructosa"],
+      "menus": ["Menu Vegetariano"]
+    },
+    {
+      "name": "Tiramisu",
+      "description": "Pastel de Tiramisu",
+      "ingredients": ["Tiramisu", "Salsa", "Nata", "Galleta"],
+      "image": "Imagenes/Tiramisu.jpg",
+      "categories": ["Postres"],
+      "allergens": ["Lactosa", "Frutos Secos"],
+      "menus": ["Menu Pollo"]
+    },
+    {
+      "name": "Cesar",
+      "description": "Ensalada cesar",
+      "ingredients": ["Lechuga", "Pollo", "Salsa", "Tomate"],
+      "image": "Imagenes/Cesar.jpg",
+      "categories": ["Ensaladas"],
+      "allergens": ["Gluten", "Lactosa"],
+      "menus": ["Menu Pollo"]
+    },
+    {
+      "name": "Pasta",
+      "description": "Ensalada de pasta",
+      "ingredients": ["Pasta", "Salsa", "Tomate", "Lechuga"],
+      "image": "Imagenes/Pasta.jpg",
+      "categories": ["Ensaladas"],
+      "allergens": ["Gluten", "Lactosa"],
+      "menus": ["Menu Continental"]
+    },
+    {
+      "name": "Vegana",
+      "description": "Ensalada vegetal",
+      "ingredients": ["Vegetales", "Salsa", "Tomate", "Lechuga"],
+      "image": "Imagenes/Vegana.jpg",
+      "categories": ["Ensaladas"],
+      "allergens": ["Gluten", "Frutos Secos"],
+      "menus": ["Menu Vegetariano"]
+    },
+    {
+      "name": "Pescado",
+      "description": "Ensalada de pescado",
+      "ingredients": ["Pescado de temporada", "Tomate", "Lechuga"],
+      "image": "Imagenes/Pescado.jpg",
+      "categories": ["Ensaladas"],
+      "allergens": ["Gluten"],
+      "menus": ["Menu Continental"]
+    }
+  ],
+  "categories": [
+    {
+      "name": "Ensaladas",
+      "description": "Frescas y variadas ensaladas y entrantes",
+      "image": "Imagenes/Ensaladas.jpg",
+      "dishes": ["Cesar", "Pasta", "Vegana", "Pescado"]
+    },
+    {
+      "name": "Hamburguesas",
+      "description": "Hamburguesas de pollo, ternera y tofu",
+      "image": "Imagenes/Hamburguesas.jpg",
+      "dishes": ["Pollo", "Ternera", "Vegetariana", "Barbacoa"]
+    },
+    {
+      "name": "Postres",
+      "description": "HPostres caseros y variados",
+      "image": "Imagenes/Postres.jpg",
+      "dishes": ["Chocolate", "Helado", "Fruta", "Tiramisu"]
+    }
+  ],
+  "allergens": [
+    {
+      "name": "Gluten",
+      "description": "Las hamburguesas contiene gluten"
+    },
+    {
+      "name": "Lactosa",
+      "description": "La salsa contiene leche"
+    },
+    {
+      "name": "Frutos Secos",
+      "description": "El plato contiene trazas de frutos secos"
+    },
+    {
+      "name": "Fructosa",
+      "description": "La salsa puede contener azucares naturales y añadidos"
+    }
+  ],
+  "menus": [
+    {
+      "name": "Menu Vegetariano",
+      "description": "Menu diario del restaurante",
+      "dishes": ["Vegetariana", "Fruta", "Vegana"]
+    },
+    {
+      "name": "Menu Continental",
+      "description": "Menu de platos internacionales",
+      "dishes": ["Ternera", "Pasta", "Helado"]
+    },
+    {
+      "name": "Menu Pollo",
+      "description": "Menu diario especial de pollo",
+      "dishes": ["Pollo", "Cesar", "Tiramisu"]
+    }
+  ],
+  "restaurants": [
+    {
+      "name": "Central",
+      "tipo": "Restaurante De Alta Cocina, Especialidad en Pescados",
+      "location": { "latitude": 37.7128, "longitude": -54.006 }
+    },
+    {
+      "name": "Bistro",
+      "tipo": "Restaurante De Cocina Tradicional Española",
+      "location": { "latitude": 37.7128, "longitude": -64.006 }
+    },
+    {
+      "name": "Gourmet",
+      "tipo": "Restaurante De Cocina Internacional",
+      "location": { "latitude": 37.7128, "longitude": -84.006 }
+    }
+  ]
+}
