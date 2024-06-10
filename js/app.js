@@ -3,7 +3,9 @@ window.addEventListener("load", function () {
 // Selectores
 const categoriasSelectElement = document.querySelector('#categories');
 const resultadoElement = document.querySelector('#resultado');
-const modalElement = new bootstrap.Modal('#modal', {});
+const modal= document.getElementById('modal');
+const modalBody = document.querySelector('.modal-body');
+const modalTitle = document.querySelector('.modal-title');
 const favoritosElement = document.querySelector('.favoritos');
 
 
@@ -29,7 +31,7 @@ function cargarCategorias() {
 
 cargarCategorias();
 
-//Cargar dishes de la categoría seleccionada utilizando el script getDishes.php
+//Cargar DISHES de la categoría seleccionada utilizando el script getDishes.php
 
 categoriasSelectElement.addEventListener('change', function () {
   const category = categoriasSelectElement.value;
@@ -47,7 +49,7 @@ categoriasSelectElement.addEventListener('change', function () {
               <div class="card-body">
                 <h5 class="card-title">${dish.name}</h5>
                 <p class="card-text">${dish.description}</p>
-                <button class="btn btn-primary" data-dish-name="${dish.name}">Ver más</button>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal"data-dish-name="${dish.name}">Ver más</button>
               </div>
             </div>
           `;
@@ -57,54 +59,35 @@ categoriasSelectElement.addEventListener('change', function () {
       .catch((error) => console.error(error, 'Error al cargar los platos'));
   }
 });
+
+resultadoElement.addEventListener('click', (event) => {
+
+  if (event.target.classList.contains('btn-primary')){
+    const dishName = event.target.getAttribute('data-dish-name');
+    //Obtener los datos del plato seleccionado con fetch
+
+    fetch(`../php/getDishByName.php?name=${dishName}`)
+      .then((response) => response.json())
+      .then((data) => {
+        modalTitle.textContent = data.name;
+        modalBody.innerHTML = `
+          <img src="${data.image}" class="img-fluid" alt="${data.name}">
+          <p>${data.description}</p>
+          <p>Ingredients: ${data.ingredients}</p>
+          <button class="btn btn-success" data-dish-name="${data.name}">Agregar a favoritos</button>
+        `;
+      })
+      .catch((error) => console.error(error,'Error al cargar el plato'));
+    }
+  });
+
 });
 
-// Mostrar modal con la información del plato seleccionado
-
-//tenemos un modalElement en el DOM que es el modal que se va a mostrar
-
-const limpiarHTML = (selector) => {
-  while (selector.firstChild) {
-    selector.removeChild(selector.firstChild);
-  } 
-}
 
 
-//Consultar dish por name
 
-const consultarDish = (name) => {
-  fetch(`../php/getDishByName.php?name=${name}`)
-    .then((response) => response.json())
-    .then((data) => {
-      const dish = data[0];
-      const modalBody = document.querySelector('.modal-body');
-      limpiarHTML(modalBody);
-      const div = document.createElement('div');
-      div.innerHTML = `
-        <img src="${dish.image}" class="img-fluid"
-        <p><strong>Nombre:</strong> ${dish.name}</p>
-        <p><strong>Descripción:</strong> ${dish.description}</p>
 
-      `;
-      modalBody.appendChild(div);
-      modalElement.show();
-      
-}
-    )
-    .catch((error) => console.error(error, 'Error al cargar el plato'));
-}
 
-// Evento para abrir el modal
-
-document.addEventListener('click', (e) => {
-  if (e.target.tagName === 'BUTTON') {
-    const dishName = e.target.getAttribute('data-dish-name');
-    consultarDish(dishName);
-  }
-}
-);
-
-// Buscar platos por nombre
 
 
 

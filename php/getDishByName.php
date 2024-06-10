@@ -12,17 +12,21 @@ $jsonData = file_get_contents($jsonFile);
 
 $data = json_decode($jsonData, true);
 
-// Initialize the array for filtered dishes
+// Buscar si el parámetro name está presente en la URL
 
-$filteredDishes = [];
-
-//El botón del evento es <button class="btn btn-primary" data-dish-name="${dish.name}">Ver más</button>
-//Al pulsar el botón debe saltar el modal con la información del plato seleccionado
-
-
-
-
-
-
-
-?>
+if (isset($_GET['name'])) {
+    $dishName = $_GET['name'];
+    $dish = null;
+    foreach ($data['dishes'] as $d) {
+        if ($d['name'] === $dishName) {
+            $dish = $d;
+            break; // Se encuentra el plato, se sale del bucle
+        }
+    }
+    if ($dish) {
+        echo json_encode($dish);
+    } else {
+        echo json_encode(null); // Si no se encuentra el plato, devuelve null
+        echo json_encode(['error' => 'Plato no encontrado']);
+    }
+} 
